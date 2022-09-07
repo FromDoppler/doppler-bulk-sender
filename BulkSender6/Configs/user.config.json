@@ -1,0 +1,80 @@
+﻿{
+  "$type": "Doppler.BulkSender.Configuration.UserApiConfiguration, Doppler.BulkSender",
+  "MaxParallelProcessors": 2,
+  "DeliveryDelay": 50,
+  "MaxThreadsNumber": 1,
+  "PreProcessor": {
+    "$type": "Doppler.BulkSender.Configuration.BasicPreProcessorConfiguration, Doppler.BulkSender"
+  },
+  "Credentials": {
+    "AccountId": "",
+    "ApiKey": "",
+    "Email": "",
+    "Password": ""
+  },
+  "FileExtensions": [
+    ".csv"
+  ],
+  "Ftp": {
+    "$type": "Doppler.BulkSender.Configuration.FtpConfiguration, Doppler.BulkSender",
+    "Host": "",
+    "Password": "",
+    "Username": ""
+  },
+  "HasDeleteFtp": true,
+  "Name": "user",
+  "Results": {
+    "$type": "Doppler.BulkSender.Configuration.ResultConfiguration, Doppler.BulkSender",
+    "FileName": {
+      "$type": "Doppler.BulkSender.Configuration.ReportName, Doppler.BulkSender",
+      "Extension": "csv",
+      "Parts": [
+        {
+          "$type": "Doppler.BulkSender.Configuration.FileNameReportNamePart, Doppler.BulkSender"
+        },
+        {
+          "$type": "Doppler.BulkSender.Configuration.FixReportNamePart, Doppler.BulkSender",
+          "Value": "processed"
+        }
+      ],
+      "PartSeparator": "_"
+    },
+    "Folder": "relay/resulst"
+  },
+  "Templates": [
+    {
+      "$type": "Doppler.BulkSender.Configuration.TemplateConfiguration, Doppler.BulkSender",
+      "AttachmentsFolder": "/relay/attachments",
+      "DownloadFolders": [
+        "/relay"
+      ],
+      "Fields": [
+        {
+          "Name": "email",
+          "Position": 0
+        },
+        {
+          "Name": "name",
+          "Position": 1
+        },
+        {
+          "Name": "templateid",
+          "Position": 2
+        },
+        {
+          "IsAttachment": true,
+          "Name": "attach1",
+          "Position": 3
+        }
+      ],
+      "FieldSeparator": ",",
+      "FileNameParts": [
+        "*"
+      ],
+      "FileNamePartSeparator": " ",
+      "HasHeaders": true,
+      "TemplateName": "file"
+    }
+  ],
+  "UserGMT": "-3"
+}
