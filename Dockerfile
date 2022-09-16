@@ -5,10 +5,10 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["BulkSender6/Doppler.BulkSender.csproj", "BulkSender6/"]
-RUN dotnet restore "BulkSender6/Doppler.BulkSender.csproj"
+COPY ["Doppler.BulkSender.csproj", "."]
+RUN dotnet restore "./Doppler.BulkSender.csproj"
 COPY . .
-WORKDIR "/src/BulkSender6"
+WORKDIR "/src/."
 RUN dotnet build "Doppler.BulkSender.csproj" -c Release -o /app/build
 
 FROM build AS publish
